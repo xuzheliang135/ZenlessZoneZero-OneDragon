@@ -1,0 +1,32 @@
+[project]
+name = "genshin-background-lab"
+version = "0.1.0"
+description = "原神窗口截图与输入验证工具"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "mss>=9,<11",
+    "numpy>=1.26,<3",
+    "pillow>=10,<12",
+    "psutil>=5.9,<8",
+    "pyside6==6.8.0.2",
+    "pyside6-fluent-widgets==1.11.1",
+    "pywin32<312; sys_platform == 'win32'",
+]
+
+[project.optional-dependencies]
+gamepad = ["vgamepad==0.1.0"]
+wgc = ["windows-capture>=1.5,<2"]
+
+[project.scripts]
+genshin-background-lab = "genshin_background_lab.app:main"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP", "SIM"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "single"
